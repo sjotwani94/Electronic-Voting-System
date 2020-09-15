@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "554308580421",
+    "firebase_url": "https://electronic-voting-system-57925.firebaseio.com",
+    "project_id": "electronic-voting-system-57925",
+    "storage_bucket": "electronic-voting-system-57925.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:554308580421:android:b78ce2d8e6d77896ea5f2c",
+        "android_client_info": {
+          "package_name": "com.thirtyfourthirtysix.electronicvotingsystem"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "554308580421-k39l5698777dak7cqv07cqq9r920k41g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAxXQFJkyJrPaT0lKhXjpBZSTC14aRjgfw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "554308580421-k39l5698777dak7cqv07cqq9r920k41g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
