@@ -11,11 +11,15 @@ public class CandidateDetails {
     private String Photo;
     private String IdentityProof;
     private String CandidateID;
+    private String EducationQualification;
+    private String PoliticalExperience;
+    private String JobBusiness;
+    private String MoneyAssets;
+    private String PropertyDetails;
+    private String PartyName;
 
-    public CandidateDetails(String IdentityProof, String Photo, String candidateName, String dateOfBirth, String emailID, long mobileNumber, String permanentAddress, String currentAddress, String password) {
+    public CandidateDetails(String candidateName, String dateOfBirth, String emailID, long mobileNumber, String permanentAddress, String currentAddress, String password, String photo, String identityProof, String educationQualification, String politicalExperience, String jobBusiness, String moneyAssets, String propertyDetails, String partyName) {
         setCandidateID("");
-        setIdentityProof(IdentityProof);
-        setPhoto(Photo);
         setCandidateName(candidateName);
         setDateOfBirth(dateOfBirth);
         setEmailID(emailID);
@@ -23,6 +27,14 @@ public class CandidateDetails {
         setPermanentAddress(permanentAddress);
         setCurrentAddress(currentAddress);
         setPassword(password);
+        setPhoto(photo);
+        setIdentityProof(identityProof);
+        setEducationQualification(educationQualification);
+        setPoliticalExperience(politicalExperience);
+        setJobBusiness(jobBusiness);
+        setMoneyAssets(moneyAssets);
+        setPropertyDetails(propertyDetails);
+        setPartyName(partyName);
     }
 
     public String getCandidateID() {
@@ -103,5 +115,53 @@ public class CandidateDetails {
 
     public void setPassword(String password) {
         Password = password;
+    }
+
+    public String getEducationQualification() {
+        return EducationQualification;
+    }
+
+    public void setEducationQualification(String educationQualification) {
+        EducationQualification = educationQualification;
+    }
+
+    public String getPoliticalExperience() {
+        return PoliticalExperience;
+    }
+
+    public void setPoliticalExperience(String politicalExperience) {
+        PoliticalExperience = politicalExperience;
+    }
+
+    public String getJobBusiness() {
+        return JobBusiness;
+    }
+
+    public void setJobBusiness(String jobBusiness) {
+        JobBusiness = jobBusiness;
+    }
+
+    public String getMoneyAssets() {
+        return MoneyAssets;
+    }
+
+    public void setMoneyAssets(String moneyAssets) {
+        MoneyAssets = moneyAssets;
+    }
+
+    public String getPropertyDetails() {
+        return PropertyDetails;
+    }
+
+    public void setPropertyDetails(String propertyDetails) {
+        PropertyDetails = propertyDetails;
+    }
+
+    public String getPartyName() {
+        return PartyName;
+    }
+
+    public void setPartyName(String partyName) {
+        PartyName = partyName;
     }
 }

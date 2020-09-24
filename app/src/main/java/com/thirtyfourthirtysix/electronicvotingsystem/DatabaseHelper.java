@@ -45,6 +45,12 @@ public final class DatabaseHelper {
         newIssueRef.setValue(newVoter);
     }
 
+    public static final void addNewCandidate(CandidateDetails newCandidate) {
+        DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference("/Candidates");
+        DatabaseReference newIssueRef = rootRef.push();
+        newIssueRef.setValue(newCandidate);
+    }
+
     public static final void deleteVoter(String keyToDelete) {
 
         // get a reference to the issue child node to be deleted

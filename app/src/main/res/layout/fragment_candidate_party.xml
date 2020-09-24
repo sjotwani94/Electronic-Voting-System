@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".CandidatePartyFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/DropDownTextField"
+            android:id="@+id/EducationQualification"
+            android:layout_width="340dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_centerHorizontal="true"
+            android:hint="Education Qualification"
+            app:boxCornerRadiusBottomEnd="8dp"
+            app:boxCornerRadiusTopEnd="8dp"
+            app:boxCornerRadiusBottomStart="8dp"
+            app:boxCornerRadiusTopStart="8dp">
+
+            <AutoCompleteTextView
+                android:id="@+id/education_qualification"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/PoliticalExperience"
+            android:layout_width="340dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/EducationQualification"
+            style="@style/LoginTextField"
+            android:textColor="#000000"
+            android:hint="Political Experience"
+            app:boxCornerRadiusBottomEnd="8dp"
+            app:boxCornerRadiusTopEnd="8dp"
+            app:boxCornerRadiusBottomStart="8dp"
+            app:boxCornerRadiusTopStart="8dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/political_experience"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:minLines="3"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/JobBusiness"
+            android:layout_width="340dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/PoliticalExperience"
+            style="@style/LoginTextField"
+            android:textColor="#000000"
+            android:hint="Details of Job/Business"
+            app:boxCornerRadiusBottomEnd="8dp"
+            app:boxCornerRadiusTopEnd="8dp"
+            app:boxCornerRadiusBottomStart="8dp"
+            app:boxCornerRadiusTopStart="8dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/job_business"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:minLines="3"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/MoneyAssets"
+            android:layout_width="340dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/JobBusiness"
+            style="@style/LoginTextField"
+            android:textColor="#000000"
+            android:hint="Detail of Money/Assets"
+            app:boxCornerRadiusBottomEnd="8dp"
+            app:boxCornerRadiusTopEnd="8dp"
+            app:boxCornerRadiusBottomStart="8dp"
+            app:boxCornerRadiusTopStart="8dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/money_assets"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:minLines="3"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/PropertyDetails"
+            android:layout_width="340dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/MoneyAssets"
+            style="@style/LoginTextField"
+            android:textColor="#000000"
+            android:hint="Property Details"
+            app:boxCornerRadiusBottomEnd="8dp"
+            app:boxCornerRadiusTopEnd="8dp"
+            app:boxCornerRadiusBottomStart="8dp"
+            app:boxCornerRadiusTopStart="8dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/property_details"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:minLines="3"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/DropDownTextField"
+            android:id="@+id/PartyName"
+            android:layout_width="340dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/PropertyDetails"
+            android:hint="Party Name"
+            app:boxCornerRadiusBottomEnd="8dp"
+            app:boxCornerRadiusTopEnd="8dp"
+            app:boxCornerRadiusBottomStart="8dp"
+            app:boxCornerRadiusTopStart="8dp">
+
+            <AutoCompleteTextView
+                android:id="@+id/party_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/submit_all"
+            android:layout_below="@+id/PartyName"
+            android:layout_width="170dp"
+            android:layout_height="45dp"
+            style="@style/AppButton"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="Submit"
+            android:textSize="16dp"/>
+
+    </RelativeLayout>
+</ScrollView>

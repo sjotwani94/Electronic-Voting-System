@@ -14,7 +14,8 @@
         android:roundIcon="@mipmap/ic_evslogo_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".VoterRegistration"></activity>
+        <activity android:name=".CandidateRegistration"></activity>
+        <activity android:name=".VoterRegistration" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

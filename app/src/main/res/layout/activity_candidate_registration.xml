@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/light_green"
+    tools:context=".CandidateRegistration">
+
+    <LinearLayout
+        android:id="@+id/title_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="20dp">
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="@drawable/button_selector_white"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="10dp"
+            android:src="@drawable/president"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/candidate_registration"
+            android:textColor="@color/black"
+            android:textSize="30dp"
+            android:textAlignment="center" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="General Details"
+        android:id="@+id/main_text"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/title_container"
+        android:background="@drawable/border_top_bottom"
+        android:layout_gravity="center_horizontal"
+        android:textAppearance="?android:textAppearanceLarge"
+        android:gravity="center_horizontal" />
+
+    <fragment
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/fragment_one"
+        android:layout_below="@+id/main_text"
+        android:name="com.thirtyfourthirtysix.electronicvotingsystem.CandidateGeneralFragment"
+        tools:layout="@layout/fragment_candidate_general">
+    </fragment>
+
+    <fragment
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/fragment_two"
+        android:layout_below="@+id/main_text"
+        android:name="com.thirtyfourthirtysix.electronicvotingsystem.CandidatePartyFragment"
+        tools:layout="@layout/fragment_candidate_party">
+    </fragment>
+
+</RelativeLayout>

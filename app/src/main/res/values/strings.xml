@@ -2,8 +2,49 @@
     <string name="app_name">Electronic Voting System</string>
     <string name="forgot_password"><u>Forgot Password?</u></string>
     <string name="voter_registration">Voter\nRegistration</string>
+    <string name="candidate_registration">Candidate\nRegistration</string>
     <string name="register_voter">Register as Voter</string>
     <string name="register_candidate">Register as Candidate</string>
+    <string-array name="parties">
+        <item>BJP (Bharatiya Janta Party)</item>
+        <item>Congress</item>
+        <item>AAP (Aam Aadmi Party)</item>
+    </string-array>
+    <string-array name="education_qualification">
+        <item>10th Pass</item>
+        <item>12th Pass</item>
+        <item>BE/BTech</item>
+        <item>Bachelor of Architecture (BArch)</item>
+        <item>BSc (Science)</item>
+        <item>BCA (IT &amp; Software)</item>
+        <item>BSc (IT &amp; Software)</item>
+        <item>MBBS</item>
+        <item>BSc Science (Non-Math subjects)</item>
+        <item>BSc Post Basic Nursing</item>
+        <item>Bachelor of Pharmacy (BPharma)</item>
+        <item>BCom (Hons)</item>
+        <item>BCom (General)</item>
+        <item>BCom in Accounting and Commerce</item>
+        <item>BBA LLB</item>
+        <item>BBA/BMS</item>
+        <item>Chartered Accountancy (CA)</item>
+        <item>Company Secretary (CS)</item>
+        <item>BA in Humanities &amp; Social Sciences</item>
+        <item>BA in Arts (Fine/Visual/Performing)</item>
+        <item>Bachelor of Fine Arts (BFA)</item>
+        <item>BDes in Animation</item>
+        <item>BA LLB</item>
+        <item>BDes in Design</item>
+        <item>BSc in Hospitality &amp; Travel</item>
+        <item>BSc in Design</item>
+        <item>Bachelor of Journalism &amp; Mass Communication (BJMC)</item>
+        <item>BHM in Hospitality &amp; Travel</item>
+        <item>Bachelor of Journalism (BJ)</item>
+        <item>Bachelor of Mass Media (BMM)</item>
+        <item>BA in Hospitality &amp; Travel</item>
+        <item>BA in Animation</item>
+        <item>Diploma in Education (DEd)</item>
+    </string-array>
     <string-array name="india_states">
         <item>Andaman and Nicobar Islands</item>
         <item>Andhra Pradesh</item>
@@ -235,4 +276,7 @@
         <item>Yercaud</item>
         <item>Zanskar</item>
     </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
