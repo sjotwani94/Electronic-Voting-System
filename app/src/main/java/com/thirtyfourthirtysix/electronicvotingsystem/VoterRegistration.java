@@ -52,11 +52,20 @@ import com.google.firebase.storage.UploadTask;
 
 import java.io.FileDescriptor;
 import java.io.IOException;
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
+import java.security.spec.InvalidKeySpecException;
+import java.security.spec.KeySpec;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+
+import javax.crypto.SecretKeyFactory;
+import javax.crypto.spec.PBEKeySpec;
 
 public class VoterRegistration extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
     TextInputEditText userName,userDOB,userEmail,userMobile,permanentAddress,currentAddress,permanentPinCode,currentPinCode,userPassword,confirmPassword,documentName;
@@ -84,6 +93,30 @@ public class VoterRegistration extends AppCompatActivity implements DatePickerDi
                 .setPositiveButton("Dismiss", null)
                 .setIcon(android.R.drawable.presence_busy)
                 .show();
+    }
+
+    public static String md5(String input) {
+
+        String md5 = null;
+
+        if(null == input) return null;
+
+        try {
+
+            //Create MessageDigest object for MD5
+            MessageDigest digest = MessageDigest.getInstance("MD5");
+
+            //Update input string in message digest
+            digest.update(input.getBytes(), 0, input.length());
+
+            //Converts message digest value in base 16 (hex)
+            md5 = new BigInteger(1, digest.digest()).toString(16);
+
+        } catch (NoSuchAlgorithmException e) {
+
+            e.printStackTrace();
+        }
+        return md5;
     }
 
     @Override
@@ -267,7 +300,7 @@ public class VoterRegistration extends AppCompatActivity implements DatePickerDi
                 }else {
                     Log.d("Image Download Link", imageDownloadUrl);
                     Log.d("Document Download Link", documentDownloadUrl);
-                    VoterDetails voterDetails = new VoterDetails(documentDownloadUrl,imageDownloadUrl,VoterName,DateOfBirth,EmailID,MobileNumber,PermanentAddress,CurrentAddress,Password);
+                    VoterDetails voterDetails = new VoterDetails(documentDownloadUrl,imageDownloadUrl,VoterName,DateOfBirth,EmailID,MobileNumber,PermanentAddress,CurrentAddress,md5(Password));
                     DatabaseHelper.addNewVoter(voterDetails);
                     Toast toast=new Toast(getApplicationContext());
                     toast.setDuration(Toast.LENGTH_LONG);
@@ -447,9 +480,8 @@ public class VoterRegistration extends AppCompatActivity implements DatePickerDi
                     .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
-
-                            // Setting progressDialog Title.
-                            progressDialog.setTitle("Image is Uploading...");
+                            double p=(100.0*taskSnapshot.getBytesTransferred())/taskSnapshot.getTotalByteCount();
+                            progressDialog.setMessage((int) p+" % Uploading...");
 
                         }
                     });
@@ -511,9 +543,6 @@ public class VoterRegistration extends AppCompatActivity implements DatePickerDi
                     .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
-
-                            // Setting progressDialog Title.
-                            // anotherProgressDialog.setTitle("Document is Uploading...");
                             double p=(100.0*taskSnapshot.getBytesTransferred())/taskSnapshot.getTotalByteCount();
                             anotherProgressDialog.setMessage((int) p+" % Uploading...");
                         }

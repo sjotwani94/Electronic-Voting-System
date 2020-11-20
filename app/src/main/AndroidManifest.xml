@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -14,7 +15,8 @@
         android:roundIcon="@mipmap/ic_evslogo_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".CandidateRegistration"></activity>
+        <activity android:name=".ForgotPassword"></activity>
+        <activity android:name=".CandidateRegistration" />
         <activity android:name=".VoterRegistration" />
         <activity android:name=".MainActivity">
             <intent-filter>

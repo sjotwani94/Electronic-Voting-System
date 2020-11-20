@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".GetEmailFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/GetEmail"
+            android:layout_width="340dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_centerHorizontal="true"
+            style="@style/LoginTextField"
+            android:textColor="#000000"
+            android:hint="Enter Your Registered Email ID"
+            app:boxCornerRadiusBottomEnd="8dp"
+            app:boxCornerRadiusTopEnd="8dp"
+            app:boxCornerRadiusBottomStart="8dp"
+            app:boxCornerRadiusTopStart="8dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/get_user_email"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="textEmailAddress" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/submit"
+            android:layout_below="@+id/GetEmail"
+            android:layout_width="170dp"
+            android:layout_height="45dp"
+            style="@style/AppButton"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="Send Me OTP"
+            android:textSize="16dp"/>
+
+    </RelativeLayout>
+</ScrollView>

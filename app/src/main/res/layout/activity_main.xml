@@ -49,32 +49,50 @@
             style="@style/AppTextField"
             android:textColor="#000000"
             app:startIconDrawable="@drawable/ic_security_black_36dp"
+            app:endIconMode="password_toggle"
             android:hint="Password">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/input_user_pwd"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent"
+                android:inputType="textPassword" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/login"
-            android:layout_width="120dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="40dp"
+        <LinearLayout
+            android:id="@+id/login_container"
+            android:layout_width="310dp"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/UserPassword"
-            style="@style/AppButton"
             android:layout_centerHorizontal="true"
-            android:text="Login"
-            android:textSize="20dp"/>
+            android:layout_marginTop="30dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/login_as_voter"
+                android:layout_width="150dp"
+                android:layout_height="70dp"
+                style="@style/AppButton"
+                android:text="Login As Voter"
+                android:textSize="20dp"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/login_as_candidate"
+                android:layout_width="150dp"
+                android:layout_height="70dp"
+                android:layout_marginLeft="10dp"
+                style="@style/AppButton"
+                android:text="Login As Candidate"
+                android:textSize="20dp"/>
+
+        </LinearLayout>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/forgot_pwd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:layout_below="@+id/login"
+            android:layout_below="@+id/login_container"
             android:textColor="@color/black"
             style="@style/Widget.MaterialComponents.Button.TextButton"
             android:layout_centerHorizontal="true"

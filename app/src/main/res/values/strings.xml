@@ -3,6 +3,7 @@
     <string name="forgot_password"><u>Forgot Password?</u></string>
     <string name="voter_registration">Voter\nRegistration</string>
     <string name="candidate_registration">Candidate\nRegistration</string>
+    <string name="forgot_password_title">Forgot\nPassword</string>
     <string name="register_voter">Register as Voter</string>
     <string name="register_candidate">Register as Candidate</string>
     <string-array name="parties">
@@ -96,6 +97,7 @@
         <item>Almora</item>
         <item>Amarnath</item>
         <item>Amritsar</item>
+        <item>Anand</item>
         <item>Anantagir</item>
         <item>Andaman and Nicobar Islands</item>
         <item>Araku valley</item>

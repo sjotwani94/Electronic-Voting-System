@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
@@ -17,7 +19,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 
 public class CandidatePartyFragment extends Fragment {
     TextInputEditText politicalExperience,jobBusiness,moneyAssets,property;
@@ -28,6 +38,16 @@ public class CandidatePartyFragment extends Fragment {
 
     public CandidatePartyFragment() {
         // Required empty public constructor
+    }
+
+    public void alertFirebaseFailure(DatabaseError error) {
+
+        AlertDialog alertDialog = new AlertDialog.Builder(getActivity().getApplicationContext())
+                .setTitle("An error occurred while connecting to Firebase!")
+                .setMessage(error.toString())
+                .setPositiveButton("Dismiss", null)
+                .setIcon(android.R.drawable.presence_busy)
+                .show();
     }
 
     @Override
@@ -50,11 +70,27 @@ public class CandidatePartyFragment extends Fragment {
                         getResources().getStringArray(R.array.education_qualification));
         educationQualification.setAdapter(eduqual);
 
+        DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference("/Party");
+        final ArrayList<String> partyNames = new ArrayList<String>();
+        dbRef.addValueEventListener(new ValueEventListener() {
+
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                partyNames.addAll(DatabaseHelper.fetchPartyNames(snapshot));
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                alertFirebaseFailure(error);
+                error.toException();
+            }
+        });
+
         ArrayAdapter<String> partyname =
                 new ArrayAdapter<String>(
                         getActivity(),
                         R.layout.dropdown_menu_popup_item,
-                        getResources().getStringArray(R.array.parties));
+                        partyNames);
         partyName.setAdapter(partyname);
 
         submit.setOnClickListener(new View.OnClickListener() {

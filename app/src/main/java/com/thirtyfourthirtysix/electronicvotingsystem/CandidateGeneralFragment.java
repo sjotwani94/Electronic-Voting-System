@@ -51,6 +51,9 @@ import com.google.firebase.storage.UploadTask;
 
 import java.io.FileDescriptor;
 import java.io.IOException;
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -99,6 +102,30 @@ public class CandidateGeneralFragment extends Fragment implements DatePickerDial
      */
     public interface OnFragmentInteractionListener {
         void onFragmentInteraction(Uri uri);
+    }
+
+    public static String md5(String input) {
+
+        String md5 = null;
+
+        if(null == input) return null;
+
+        try {
+
+            //Create MessageDigest object for MD5
+            MessageDigest digest = MessageDigest.getInstance("MD5");
+
+            //Update input string in message digest
+            digest.update(input.getBytes(), 0, input.length());
+
+            //Converts message digest value in base 16 (hex)
+            md5 = new BigInteger(1, digest.digest()).toString(16);
+
+        } catch (NoSuchAlgorithmException e) {
+
+            e.printStackTrace();
+        }
+        return md5;
     }
 
     @Override
@@ -275,7 +302,7 @@ public class CandidateGeneralFragment extends Fragment implements DatePickerDial
                 }else {
                     Log.d("Image Download Link", imageDownloadUrl);
                     Log.d("Document Download Link", documentDownloadUrl);
-                    onNameSetListener.setGeneralDetails(documentDownloadUrl,imageDownloadUrl,CandidateName,DateOfBirth,EmailID,MobileNumber,PermanentAddress,CurrentAddress,Password);
+                    onNameSetListener.setGeneralDetails(documentDownloadUrl,imageDownloadUrl,CandidateName,DateOfBirth,EmailID,MobileNumber,PermanentAddress,CurrentAddress,md5(Password));
                 }
             }
         });
