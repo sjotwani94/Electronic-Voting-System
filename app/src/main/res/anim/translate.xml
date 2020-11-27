@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+    <translate
+        android:fromXDelta="0"
+        android:toXDelta="150"
+        android:duration="3000"
+        android:fillAfter="true"/>
+    <translate
+        android:toYDelta="200"
+        android:startOffset="3000"
+        android:duration="3000"
+        android:fillAfter="false"/>
+</set>
+    <!--
+    <translate> -> A vertical and/or horizontal motion.
+      Supports the following attributes in any of the following three formats:
+        values from -100 to 100 ending with "%", indicating a percentage relative to itself;
+        values from -100 to 100 ending in "%p", indicating a percentage relative to its parent; a float value with no suffix, indicating an absolute value.
+    attributes:
+        android:fromXDelta
+            Float or percentage. Starting X offset. Expressed either: in pixels relative to the normal position (such as "5"), in percentage relative to the element width (such as "5%"), or in percentage relative to the parent width (such as "5%p").
+        android:toXDelta
+            Float or percentage. Ending X offset. Expressed either: in pixels relative to the normal position (such as "5"), in percentage relative to the element width (such as "5%"), or in percentage relative to the parent width (such as "5%p").
+        android:fromYDelta
+            Float or percentage. Starting Y offset. Expressed either: in pixels relative to the normal position (such as "5"), in percentage relative to the element height (such as "5%"), or in percentage relative to the parent height (such as "5%p").
+        android:toYDelta
+            Float or percentage. Ending Y offset. Expressed either: in pixels relative to the normal position (such as "5"), in percentage relative to the element height (such as "5%"), or in percentage relative to the parent height (such as "5%p").
+    -->

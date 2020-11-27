@@ -3,6 +3,7 @@ package com.thirtyfourthirtysix.electronicvotingsystem;
 import androidx.annotation.NonNull;
 import android.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -17,6 +18,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ScrollView;
+import android.widget.Toast;
 
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -27,14 +29,24 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
     TextInputEditText userEmail,userPassword;
     MaterialButton loginVoter,loginCandidate,forgotPwd,registerVoter,registerCandidate;
     ScrollView scrollView;
+    ArrayList<VoterDetails> voterDetails = new ArrayList<VoterDetails>();
+    ArrayList<CandidateDetails> candidateDetails = new ArrayList<CandidateDetails>();
     SharedPreferences sharedpreferences;
     public static final String mypreference = "mypref";
-    public static final String Email = "emailKey";
+    public static final String UserRole = "roleKey";
+    public static final String UserName = "nameKey";
+    public static final String EMail = "emailKey";
+    public static final String PermanentAddress = "permanentAddressKey";
+    public static final String CurrentAddress = "currentAddressKey";
+    public static final String Photo = "photoKey";
     public static final String Theme = "themeKey";
+    public static final String PartyName = "partyKey";
 
     // helper method to open the database error dialog box
     public void alertFirebaseFailure(DatabaseError error) {
@@ -84,8 +96,32 @@ public class MainActivity extends AppCompatActivity {
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         int result = DatabaseHelper.fetchLoginDetails(snapshot,userEmailID,userPwd);
                         if (result==0){
-                            Snackbar snackbar = Snackbar.make(loginVoter,"Successfully Logged in as Voter",Snackbar.LENGTH_LONG);
-                            snackbar.show();
+                            DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference("/Voters");
+                            dbRef.addValueEventListener(new ValueEventListener() {
+
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                    voterDetails = DatabaseHelper.getVoterDetailsEmail(snapshot,userEmailID);
+                                    SharedPreferences.Editor editor = sharedpreferences.edit();
+                                    editor.putString(UserRole,"Voter");
+                                    editor.putString(UserName,voterDetails.get(0).getVoterName());
+                                    editor.putString(EMail,voterDetails.get(0).getEmailID());
+                                    editor.putString(PermanentAddress,voterDetails.get(0).getPermanentAddress());
+                                    editor.putString(CurrentAddress,voterDetails.get(0).getCurrentAddress());
+                                    editor.putString(Photo,voterDetails.get(0).getPhoto());
+                                    editor.commit();
+                                    Intent intent = new Intent(MainActivity.this,VoterHomePage.class);
+                                    startActivity(intent);
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError error) {
+                                    alertFirebaseFailure(error);
+                                    error.toException();
+                                }
+                            });
+                            Toast.makeText(MainActivity.this, "Successfully Logged in as Voter", Toast.LENGTH_LONG).show();
+                            finish();
                         }else if (result==1){
                             Snackbar snackbar = Snackbar.make(loginVoter,"Invalid Credentials for Voter",Snackbar.LENGTH_LONG);
                             snackbar.show();
@@ -116,8 +152,33 @@ public class MainActivity extends AppCompatActivity {
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         int result = DatabaseHelper.fetchLoginDetails(snapshot,userEmailID,userPwd);
                         if (result==0){
-                            Snackbar snackbar = Snackbar.make(loginCandidate,"Successfully Logged in as Candidate",Snackbar.LENGTH_LONG);
-                            snackbar.show();
+                            DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference("/Candidates");
+                            dbRef.addValueEventListener(new ValueEventListener() {
+
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                    candidateDetails = DatabaseHelper.getCandidateDetailsEmail(snapshot,userEmailID);
+                                    SharedPreferences.Editor editor = sharedpreferences.edit();
+                                    editor.putString(UserRole,"Candidate");
+                                    editor.putString(UserName,candidateDetails.get(0).getCandidateName());
+                                    editor.putString(EMail,candidateDetails.get(0).getEmailID());
+                                    editor.putString(PermanentAddress,candidateDetails.get(0).getPermanentAddress());
+                                    editor.putString(CurrentAddress,candidateDetails.get(0).getCurrentAddress());
+                                    editor.putString(Photo,candidateDetails.get(0).getPhoto());
+                                    editor.putString(PartyName,candidateDetails.get(0).getPartyName());
+                                    editor.commit();
+                                    Intent intent = new Intent(MainActivity.this,CandidateHomePage.class);
+                                    startActivity(intent);
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError error) {
+                                    alertFirebaseFailure(error);
+                                    error.toException();
+                                }
+                            });
+                            Toast.makeText(MainActivity.this, "Successfully Logged in as Candidate", Toast.LENGTH_LONG).show();
+                            finish();
                         }else if (result==1){
                             Snackbar snackbar = Snackbar.make(loginCandidate,"Invalid Credentials for Candidate",Snackbar.LENGTH_LONG);
                             snackbar.show();

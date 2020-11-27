@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/logout"
+        android:icon="@drawable/ic_exit_to_app_green_36dp"
+        android:title="Logout"/>
+    <item android:id="@+id/manage_acc_details"
+        android:icon="@drawable/ic_account_box_green_36dp"
+        android:title="Manage My Account Details"/>
+    <item android:id="@+id/view_campaigning_notices"
+        android:icon="@drawable/ic_event_note_green_36dp"
+        android:title="View Campaigning Notices"/>
+    <item android:id="@+id/delete_account"
+        android:icon="@drawable/ic_security_green_36dp"
+        android:title="Delete My Account"/>
+
+</menu>

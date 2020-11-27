@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <scale
+        android:fromXScale="1.0"
+        android:toXScale="1.5"
+        android:fromYScale="1.0"
+        android:toYScale="1.5"
+        android:pivotX="50%"
+        android:pivotY="50%"
+        android:duration="3000"/>
+    <scale
+        android:fromXScale="1.0"
+        android:toXScale="0.5"
+        android:fromYScale="1.0"
+        android:toYScale="0.5"
+        android:pivotX="50%"
+        android:pivotY="50%"
+        android:startOffset="3000"
+        android:duration="3000"/>
+</set>
+    <!--
+    scale -> A resizing animation.
+    You can specify the center point of the image from which it grows outward (or inward) by specifying pivotX and pivotY.
+    For example, if these values are 0, 0 (top-left corner), all growth will be down and to the right.
+    attributes:
+        android:fromXScale
+            Float. Starting X size offset, where 1.0 is no change.
+        android:toXScale
+            Float. Ending X size offset, where 1.0 is no change.
+        android:fromYScale
+            Float. Starting Y size offset, where 1.0 is no change.
+        android:toYScale
+               Float. Ending Y size offset, where 1.0 is no change.
+        android:pivotX
+            Float. The X coordinate to remain fixed when the object is scaled.
+        android:pivotY
+            Float. The Y coordinate to remain fixed when the object is scaled.
+
+ android:startOffset ->
+        int. The amount of milliseconds the animation delays after start() is called.
+    -->

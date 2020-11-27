@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+    <rotate
+        android:fromDegrees="0"
+        android:toDegrees="360"
+        android:pivotX="50%"
+        android:pivotY="50%"
+        android:duration="3000"/>
+</set>
+<!--
+<rotate> -> A rotation animation.
+attributes:
+    android:fromDegrees
+        Float. Starting angular position, in degrees.
+    android:toDegrees
+        Float. Ending angular position, in degrees.
+    android:pivotX
+        Float or percentage. The X coordinate of the center of rotation.
+        Expressed either: in pixels relative to the object's left edge (such as "5"),
+          in percentage relative to the object's left edge (such as "5%"), or
+          in percentage relative to the parent container's left edge (such as "5%p").
+    android:pivotY
+        Float or percentage. The Y coordinate of the center of rotation.
+        Expressed either: in pixels relative to the object's top edge (such as "5"),
+        in percentage relative to the object's top edge (such as "5%"), or
+        in percentage relative to the parent container's top edge (such as "5%p").
+-->

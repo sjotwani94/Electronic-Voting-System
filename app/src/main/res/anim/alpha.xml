@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+    <alpha
+        android:fromAlpha="0.0"
+        android:toAlpha="1.0"
+        android:duration="3000"
+        android:interpolator="@android:anim/linear_interpolator"
+        android:repeatMode="restart"
+        android:repeatCount="infinite">
+    </alpha>
+</set>
+    <!--
+    alpha animation->   A fade-in or fade-out animation.
+
+      android:fromAlpha -> Float. Starting opacity offset, where 0.0 is transparent and 1.0 is opaque.
+      android:toAlpha ->Float. Ending opacity offset, where 0.0 is transparent and 1.0 is opaque.
+      android:duration -> Integer. The duration to show this frame, in milliseconds.
+      android:interpolator -> An interpolator defines the rate of change of an animation.
+                  -> This allows your existing animation effects to be accelerated, decelerated, repeated, bounced, etc.
+                  -> linearInterpolator-> The rate of change is constant.
+                  -> decelerateInterpolator -> The rate of change starts out quickly, then decelerates.
+                  -> etc.
+      android:repeatMode="restart" or "reverse"
+      android:repeatCount="infinite" -> How many times to repeat an animation.
+
+      -->

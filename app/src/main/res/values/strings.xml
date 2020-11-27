@@ -6,6 +6,10 @@
     <string name="forgot_password_title">Forgot\nPassword</string>
     <string name="register_voter">Register as Voter</string>
     <string name="register_candidate">Register as Candidate</string>
+    <string name="vote_for_party">Vote For Your Rightful Party</string>
+    <string name="example_paragraph">An election is a way people can choose their candidate or their preferences in a representative democracy or other form of government. Most democratic countries hold new elections for their national legislature every few years. What elections do is select representatives for the local areas. These are called MPs (Members of Parliament) in the British parliamentary system. Parliamentary systems may have a head of government and a head of state, but sometimes the two posts are held by the same person.</string>
+    <string name="Open">Open</string>
+    <string name="Close">Close</string>
     <string-array name="parties">
         <item>BJP (Bharatiya Janta Party)</item>
         <item>Congress</item>
